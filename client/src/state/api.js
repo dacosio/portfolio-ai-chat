@@ -1,18 +1,19 @@
+/* eslint-disable no-labels */
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
+export const apiClient = createApi({
   reducerPath: "main",
+  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
   tagTypes: [],
-  endpoints: (build) => {
-    postAiText: build.mutation({
+  endpoints: (builder) => ({
+    postAiText: builder.mutation({
       query: (payload) => ({
         url: "openai/text",
-        method: "post",
+        method: "POST",
         body: payload,
       }),
-    });
-  },
+    }),
+  }),
 });
 
-export const { usePostAiTextMutation } = api;
+export const { usePostAiTextMutation } = apiClient;
