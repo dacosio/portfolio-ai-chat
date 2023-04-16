@@ -6,6 +6,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import { Configuration, OpenAIApi } from "openai";
 import openAiRoutes from "./routes/openai.js";
+import authRoutes from "./routes/auth.js";
 
 // CONFIGURATIONS
 dotenv.config();
@@ -27,6 +28,7 @@ export const openai = new OpenAIApi(configuration);
 
 // ROUTES
 app.use("/openai", openAiRoutes);
+app.use("/auth", authRoutes);
 
 // SERVER SETUP
 const PORT = process.env.PORT || 1337;
