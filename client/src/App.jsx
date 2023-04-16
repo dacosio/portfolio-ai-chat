@@ -7,7 +7,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [secret, setSecret] = useState(null);
   const isAuth = Boolean(user) && Boolean(secret);
-  console.log(isAuth);
   return (
     <div className="app">
       <BrowserRouter>
