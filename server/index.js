@@ -30,6 +30,10 @@ export const openai = new OpenAIApi(configuration);
 app.use("/openai", openAiRoutes);
 app.use("/auth", authRoutes);
 
+app.get("/test", (req, res) => {
+  res.send("I am connected");
+});
+
 // SERVER SETUP
 const PORT = process.env.PORT || 1337;
 app.listen(PORT, () => {
