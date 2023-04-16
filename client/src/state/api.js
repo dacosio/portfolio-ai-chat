@@ -13,7 +13,25 @@ export const apiClient = createApi({
         body: payload,
       }),
     }),
+    postAiCode: builder.mutation({
+      query: (payload) => ({
+        url: "openai/code",
+        method: "POST",
+        body: payload,
+      }),
+    }),
+    postAiAssist: builder.mutation({
+      query: (payload) => ({
+        url: "openai/assist",
+        method: "POST",
+        body: payload,
+      }),
+    }),
   }),
 });
 
-export const { usePostAiTextMutation } = apiClient;
+export const {
+  usePostAiTextMutation,
+  usePostAiCodeMutation,
+  usePostAiAssistMutation,
+} = apiClient;
