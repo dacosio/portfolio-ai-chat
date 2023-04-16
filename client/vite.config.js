@@ -21,7 +21,7 @@ import path from "path";
 export default defineConfig({
   plugins: [react(), commonjs()],
   build: {
-    outDir: "build",
+    outDir: "dist",
   },
   resolve: {
     alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }], //this will always lead to src wherever directory you are
